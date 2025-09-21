@@ -1,0 +1,243 @@
+/* Global App Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* CSS Custom Properties for Theme */
+:root {
+  --color-primary: #e5ecf6;
+  --color-secondary: #a8c5da;
+  --color-background: #f7f9fb;
+  --color-surface: #e3f5ff;
+  --color-text: #1e293b;
+  --color-textSecondary: #a8c5da;
+  --color-border: #cfdeea;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-textSecondary);
+}
+
+/* Metric Card Styles */
+.metric-card {
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.metric-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.metric-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.metric-info {
+  flex: 1;
+  margin-bottom: 12px;
+}
+
+.metric-title {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.metric-change {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.change-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.change-indicator.increase {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.change-indicator.decrease {
+  background-color: var(--color-error);
+  color: white;
+}
+
+/* Chart Container */
+.chart-container {
+  transition: all 0.3s ease;
+}
+
+.chart-container:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .charts-section {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .charts-section {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .charts-section > div {
+    grid-column: span 1 !important;
+  }
+  
+  .metric-card {
+    padding: 16px;
+  }
+  
+  .metric-value {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metric-card {
+    padding: 16px;
+  }
+  
+  .metric-card-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .metric-icon-container {
+    align-self: flex-start;
+  }
+  
+  .metric-info {
+    margin-left: 0;
+  }
+  
+  .metric-change {
+    align-self: flex-end;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus and Accessibility */
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .header {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+  }
+}
